@@ -1,24 +1,433 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f5f6f8"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="googlebot" content="noindex,nofollow,noarchive"><title>OpenAA · 我的导航</title>
-<style>
-*{box-sizing:border-box} :root{--brand:#0878d1;--text:#172033;--muted:#687386;--card:#fff;--bg:#f5f6f8;--line:#e7eaf0;--pill:#f5f7fa;--w:1040px} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;-webkit-text-size-adjust:100%}header{padding:28px 16px 14px;text-align:center}.title{font-size:26px;font-weight:800;margin:0}.sub{font-size:13px;color:var(--muted);margin-top:4px}.wrap{width:min(var(--w),calc(100% - 24px));margin:auto}.finder{position:sticky;top:0;z-index:20;padding:8px 0 10px;background:rgba(245,246,248,.94);backdrop-filter:blur(10px)}.finderbox{display:flex;gap:8px}.finder input{width:100%;height:46px;border:1px solid #dce1e8;border-radius:14px;background:#fff;padding:0 15px;font-size:16px;outline:none;box-shadow:0 4px 16px rgba(20,30,50,.05)}.finder input:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(8,120,209,.1)}.google{height:46px;white-space:nowrap;border:0;border-radius:14px;padding:0 15px;background:var(--brand);color:#fff;font-weight:700;cursor:pointer}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;margin:10px 0;padding:14px 15px;box-shadow:0 5px 18px rgba(20,30,50,.045)}.card h2{font-size:16px;margin:0 0 9px;color:#183956}.links{display:flex;flex-wrap:wrap;gap:7px}.links a{display:inline-flex;align-items:center;min-height:38px;padding:7px 12px;border:1px solid #e5e9ef;border-radius:999px;background:var(--pill);color:#213a52;text-decoration:none;font-size:14px}.links a:hover{border-color:#b9d9f2;background:#eef7ff;color:var(--brand)}.favorite .links a{background:#eef7ff;border-color:#d8ebfa}.hidden{display:none!important}.empty{text-align:center;color:var(--muted);padding:24px;display:none}.collapse h2{cursor:pointer;user-select:none}.collapse h2:after{content:'＋';float:right;color:var(--muted)}.collapse.open h2:after{content:'−'}.collapse .links{display:none}.collapse.open .links{display:flex}.top{position:fixed;right:14px;bottom:18px;width:44px;height:44px;border:0;border-radius:50%;background:var(--brand);color:#fff;font-size:20px;box-shadow:0 8px 22px rgba(0,0,0,.18);display:none}.footer{text-align:center;color:#8a93a1;font-size:12px;padding:22px 10px 70px}@media(max-width:600px){header{padding:20px 12px 10px}.title{font-size:21px}.wrap{width:calc(100% - 16px)}.card{padding:12px;margin:8px 0;border-radius:14px}.links{gap:6px}.links a{font-size:13px;min-height:40px;padding:8px 11px}.google{padding:0 12px}.sub{display:none}}
-</style></head><body>
-<header><h1 class="title">OpenAA · 我的导航</h1><div class="sub">个人常用网址 · 快速查找 · 一键直达</div></header>
-<main class="wrap">
-<div class="finder"><div class="finderbox"><input id="filter" type="search" placeholder="搜索我的网址，例如 GitHub、域名、邮箱…" autocomplete="off" aria-label="搜索我的网址"><button class="google" id="googleBtn">Google</button></div></div>
-<section class="card favorite"><h2>⭐ 常用</h2><div class="links"><a href="https://openaa.com/admin">OpenAA 后台</a><a href="https://github.com/">GitHub</a><a href="https://vercel.com/">Vercel</a><a href="https://supabase.com/">Supabase</a><a href="https://dash.cloudflare.com/">Cloudflare</a><a href="https://chatgpt.com/">ChatGPT</a><a href="https://search.google.com/search-console/welcome">Google Search Console</a><a href="https://translate.google.com/?hl=zh-cn&sl=auto&tl=zh-CN&op=translate">Google 翻译</a></div></section>
-<section class="card"><h2>🌐 OpenAA / 我的网站</h2><div class="links"><a href="https://openaa.com/">OpenAA</a><a href="https://go.openaa.com/">Go.OpenAA</a><a href="https://dmv.openaa.com/">OpenAA DMV</a><a href="https://toolku.com/">Toolku</a><a href="https://img.openaa.com/">OpenAA 图片</a><a href="https://numbermobi.com/">NumberMobi</a><a href="https://onegobuy.com/">OneGoBuy</a><a href="https://jozl.com/">jozl.com</a><a href="https://jozl.com/domain/">精品域名</a></div></section>
-<section class="card"><h2>🛠 建站 / 开发</h2><div class="links"><a href="https://github.com/">GitHub</a><a href="https://github.com/search">GitHub Search</a><a href="https://github.com/copilot">GitHub Copilot</a><a href="https://vercel.com/">Vercel</a><a href="https://supabase.com/">Supabase</a><a href="https://dash.cloudflare.com/">Cloudflare</a><a href="https://open.weixin.qq.com/">微信开发平台</a><a href="https://developers.weixin.qq.com/platform">微信开发工作台</a><a href="https://web.archive.org/">时光机</a><a href="https://favicon.io/favicon-converter/">Favicon 制作</a><a href="https://www.xml-sitemaps.com/">Sitemap 制作</a><a href="https://improvmx.com/">邮件转发</a></div></section>
-<section class="card"><h2>🤖 AI</h2><div class="links"><a href="https://chatgpt.com/">ChatGPT</a><a href="https://chat.deepseek.com/">DeepSeek</a><a href="https://grok.com/">Grok</a><a href="https://gemini.google.com/">Gemini</a><a href="https://claude.ai/">Claude</a><a href="https://copilot.microsoft.com/">Copilot</a><a href="https://perplexity.ai/">Perplexity</a><a href="https://poe.com/">Poe</a><a href="https://kimi.moonshot.cn/">Kimi</a><a href="https://doubao.com/">豆包</a><a href="https://www.qianwen.com/">通义千问</a><a href="https://huggingface.co/">Hugging Face</a><a href="https://www.phind.com/">Phind</a><a href="https://www.cursor.com/">Cursor</a><a href="https://www.w3schools.com/">W3Schools</a></div></section>
-<section class="card"><h2>🌍 域名</h2><div class="links"><a href="https://www.aizhan.com/">爱站网</a><a href="https://cn.aliyun.com/">阿里云</a><a href="https://www.ename.net/">易名</a><a href="https://www.22.cn/">爱名网</a><a href="https://www.4.cn/">金名网</a><a href="https://www.dnspod.cn/">DNSPod</a><a href="https://www.gname.com/">Gname</a><a href="https://www.dynadot.com/">Dynadot</a><a href="https://www.godaddy.com/">GoDaddy</a><a href="https://www.afternic.com/">Afternic</a><a href="https://www.sedo.com/">Sedo</a><a href="https://www.dropcatch.com/">DropCatch</a><a href="https://who.is/">WHOIS</a><a href="https://www.namecheap.com/">Namecheap</a></div></section>
-<section class="card"><h2>🔍 搜索 / SEO</h2><div class="links"><a href="https://www.google.com/">Google</a><a href="https://www.baidu.com/">百度</a><a href="https://www.bing.com/">Bing</a><a href="https://www.yahoo.com/">Yahoo</a><a href="https://www.so.com/">360 搜索</a><a href="https://search.google.com/search-console/welcome">Google Search Console</a><a href="https://www.bing.com/webmasters/about">Bing Webmaster</a><a href="https://ziyuan.baidu.com/">百度搜索资源平台</a></div></section>
-<section class="card"><h2>📱 实用工具</h2><div class="links"><a href="https://www.qrcode-monkey.com/">QR Code Monkey</a><a href="https://www.generateqr.net/zh-cn">Generate QR</a><a href="https://makeqr.io/">Make QR</a><a href="https://www.photopea.com/">在线 PS</a><a href="https://www.remove.bg/">图片去背</a><a href="https://tinywow.com/">TinyWow</a><a href="https://www.speedtest.net/">网速测试</a><a href="https://web-capture.net/">网页截图</a><a href="https://screenshot.guru/">Screenshot Guru</a><a href="https://ttsmp3.com/">文本转语音</a><a href="https://www.deepl.com/translator">DeepL</a><a href="https://dict.eudic.net/">欧路词典</a></div></section>
-<section class="card"><h2>📮 邮箱 / 云盘</h2><div class="links"><a href="https://mail.google.com/">Gmail</a><a href="https://outlook.live.com/">Outlook</a><a href="https://mail.qq.com/">QQ 邮箱</a><a href="https://mail.163.com/">163 邮箱</a><a href="https://mail.aliyun.com/">阿里邮箱</a><a href="https://mail.proton.me/">Proton Mail</a><a href="https://pan.baidu.com/">百度网盘</a><a href="https://www.alipan.com/">阿里云盘</a><a href="https://www.mediafire.com/">MediaFire</a></div></section>
-<section class="card collapse" id="other"><h2>📁 其它</h2><div class="links"><a href="https://qzone.qq.com/">QQ 空间</a><a href="https://www.icloud.com/">Apple iCloud</a><a href="https://www.cadzxw.com/">CAD 自学网</a><a href="https://www.shopify.com/zh">Shopify</a><a href="https://www.numberbarn.com/">NumberBarn</a><a href="https://www.ringboost.com/">RingBoost</a><a href="https://talkroute.com/">Talkroute</a><a href="https://www.oalley.fr/">Oalley 地图</a><a href="https://www.kdocs.cn/">金山文档</a><a href="https://www.yuque.com/">语雀</a></div></section>
-<div class="empty" id="empty">没有找到匹配的网址</div>
-</main><button class="top" id="top" aria-label="回到顶部">↑</button><footer class="footer">m.openaa.com/mi · 个人导航</footer>
-<script>
-const input=document.getElementById('filter'),cards=[...document.querySelectorAll('.card')],empty=document.getElementById('empty');document.querySelectorAll('a').forEach(a=>{if(a.hostname!==location.hostname){a.target='_blank';a.rel='noopener noreferrer'}});function filterLinks(){const q=input.value.trim().toLowerCase();let total=0;cards.forEach(card=>{let count=0;card.querySelectorAll('.links a').forEach(a=>{const hit=!q||(a.textContent+' '+a.href).toLowerCase().includes(q);a.classList.toggle('hidden',!hit);if(hit)count++});card.classList.toggle('hidden',q&&count===0);if(q&&count&&card.classList.contains('collapse'))card.classList.add('open');total+=count});empty.style.display=q&&total===0?'block':'none'}input.addEventListener('input',filterLinks);document.getElementById('googleBtn').onclick=()=>{const q=input.value.trim();if(q)window.open('https://www.google.com/search?q='+encodeURIComponent(q),'_blank','noopener')};input.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();document.getElementById('googleBtn').click()}});document.querySelector('#other h2').onclick=()=>document.getElementById('other').classList.toggle('open');const topBtn=document.getElementById('top');window.addEventListener('scroll',()=>topBtn.style.display=scrollY>500?'block':'none',{passive:true});topBtn.onclick=()=>scrollTo({top:0,behavior:'smooth'});
-</script></body></html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#f5f6f8" />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <meta name="googlebot" content="noindex,nofollow,noarchive" />
+    <title>OpenAA · 我的导航</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      :root {
+        --brand: #0878d1;
+        --text: #172033;
+        --muted: #687386;
+        --card: #fff;
+        --bg: #f5f6f8;
+        --line: #e7eaf0;
+        --pill: #f5f7fa;
+        --w: 1040px;
+      }
+      body {
+        margin: 0;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+      }
+      header {
+        padding: 28px 16px 14px;
+        text-align: center;
+      }
+      .title {
+        font-size: 26px;
+        font-weight: 800;
+        margin: 0;
+      }
+      .sub {
+        font-size: 13px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+      .wrap {
+        width: min(var(--w), calc(100% - 24px));
+        margin: auto;
+      }
+      .finder {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        padding: 8px 0 10px;
+        background: rgba(245, 246, 248, 0.94);
+        backdrop-filter: blur(10px);
+      }
+      .finderbox {
+        display: flex;
+        gap: 8px;
+      }
+      .finder input {
+        width: 100%;
+        height: 46px;
+        border: 1px solid #dce1e8;
+        border-radius: 14px;
+        background: #fff;
+        padding: 0 15px;
+        font-size: 16px;
+        outline: none;
+        box-shadow: 0 4px 16px rgba(20, 30, 50, 0.05);
+      }
+      .finder input:focus {
+        border-color: var(--brand);
+        box-shadow: 0 0 0 3px rgba(8, 120, 209, 0.1);
+      }
+      .google {
+        height: 46px;
+        white-space: nowrap;
+        border: 0;
+        border-radius: 14px;
+        padding: 0 15px;
+        background: var(--brand);
+        color: #fff;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        margin: 10px 0;
+        padding: 14px 15px;
+        box-shadow: 0 5px 18px rgba(20, 30, 50, 0.045);
+      }
+      .card h2 {
+        font-size: 16px;
+        margin: 0 0 9px;
+        color: #183956;
+      }
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+      .links a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 38px;
+        padding: 7px 12px;
+        border: 1px solid #e5e9ef;
+        border-radius: 999px;
+        background: var(--pill);
+        color: #213a52;
+        text-decoration: none;
+        font-size: 14px;
+      }
+      .links a:hover {
+        border-color: #b9d9f2;
+        background: #eef7ff;
+        color: var(--brand);
+      }
+      .favorite .links a {
+        background: #eef7ff;
+        border-color: #d8ebfa;
+      }
+      .hidden {
+        display: none !important;
+      }
+      .empty {
+        text-align: center;
+        color: var(--muted);
+        padding: 24px;
+        display: none;
+      }
+      .collapse h2 {
+        cursor: pointer;
+        user-select: none;
+      }
+      .collapse h2:after {
+        content: "＋";
+        float: right;
+        color: var(--muted);
+      }
+      .collapse.open h2:after {
+        content: "−";
+      }
+      .collapse .links {
+        display: none;
+      }
+      .collapse.open .links {
+        display: flex;
+      }
+      .top {
+        position: fixed;
+        right: 14px;
+        bottom: 18px;
+        width: 44px;
+        height: 44px;
+        border: 0;
+        border-radius: 50%;
+        background: var(--brand);
+        color: #fff;
+        font-size: 20px;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+        display: none;
+      }
+      .footer {
+        text-align: center;
+        color: #8a93a1;
+        font-size: 12px;
+        padding: 22px 10px 70px;
+      }
+      @media (max-width: 600px) {
+        header {
+          padding: 20px 12px 10px;
+        }
+        .title {
+          font-size: 21px;
+        }
+        .wrap {
+          width: calc(100% - 16px);
+        }
+        .card {
+          padding: 12px;
+          margin: 8px 0;
+          border-radius: 14px;
+        }
+        .links {
+          gap: 6px;
+        }
+        .links a {
+          font-size: 13px;
+          min-height: 40px;
+          padding: 8px 11px;
+        }
+        .google {
+          padding: 0 12px;
+        }
+        .sub {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 class="title">OpenAA · 我的导航</h1>
+      <div class="sub">个人常用网址 · 快速查找 · 一键直达</div>
+    </header>
+    <main class="wrap">
+      <div class="finder">
+        <div class="finderbox">
+          <input
+            id="filter"
+            type="search"
+            placeholder="搜索我的网址，例如 GitHub、域名、邮箱…"
+            autocomplete="off"
+            aria-label="搜索我的网址"
+          /><button class="google" id="googleBtn">Google</button>
+        </div>
+      </div>
+      <section class="card favorite">
+        <h2>⭐ 常用</h2>
+        <div class="links">
+          <a href="https://openaa.com/admin">OpenAA 后台</a
+          ><a href="https://github.com/">GitHub</a
+          ><a href="https://vercel.com/">Vercel</a
+          ><a href="https://supabase.com/">Supabase</a
+          ><a href="https://dash.cloudflare.com/">Cloudflare</a
+          ><a href="https://chatgpt.com/">ChatGPT</a
+          ><a href="https://search.google.com/search-console/welcome"
+            >Google Search Console</a
+          ><a
+            href="https://translate.google.com/?hl=zh-cn&sl=auto&tl=zh-CN&op=translate"
+            >Google 翻译</a
+          >
+        </div>
+      </section>
+      <section class="card">
+        <h2>🌐 OpenAA / 我的网站</h2>
+        <div class="links">
+          <a href="https://openaa.com/">OpenAA</a
+          ><a href="https://go.openaa.com/">Go.OpenAA</a
+          ><a href="https://dmv.openaa.com/">OpenAA DMV</a
+          ><a href="https://toolku.com/">Toolku</a
+          ><a href="https://img.openaa.com/">OpenAA 图片</a
+          ><a href="https://numbermobi.com/">NumberMobi</a
+          ><a href="https://onegobuy.com/">OneGoBuy</a
+          ><a href="https://jozl.com/">jozl.com</a
+          ><a href="https://jozl.com/domain/">精品域名</a>
+        </div>
+      </section>
+      <section class="card">
+        <h2>🛠 建站 / 开发</h2>
+        <div class="links">
+          <a href="https://github.com/">GitHub</a
+          ><a href="https://github.com/search">GitHub Search</a
+          ><a href="https://github.com/copilot">GitHub Copilot</a
+          ><a href="https://vercel.com/">Vercel</a
+          ><a href="https://supabase.com/">Supabase</a
+          ><a href="https://dash.cloudflare.com/">Cloudflare</a
+          ><a href="https://open.weixin.qq.com/">微信开发平台</a
+          ><a href="https://developers.weixin.qq.com/platform">微信开发工作台</a
+          ><a href="https://web.archive.org/">时光机</a
+          ><a href="https://favicon.io/favicon-converter/">Favicon 制作</a
+          ><a href="https://www.xml-sitemaps.com/">Sitemap 制作</a
+          ><a href="https://improvmx.com/">邮件转发</a>
+        </div>
+      </section>
+      <section class="card">
+        <h2>🤖 AI</h2>
+        <div class="links">
+          <a href="https://chatgpt.com/">ChatGPT</a
+          ><a href="https://chat.deepseek.com/">DeepSeek</a
+          ><a href="https://grok.com/">Grok</a
+          ><a href="https://gemini.google.com/">Gemini</a
+          ><a href="https://claude.ai/">Claude</a
+          ><a href="https://copilot.microsoft.com/">Copilot</a
+          ><a href="https://perplexity.ai/">Perplexity</a
+          ><a href="https://poe.com/">Poe</a
+          ><a href="https://kimi.moonshot.cn/">Kimi</a
+          ><a href="https://doubao.com/">豆包</a
+          ><a href="https://www.qianwen.com/">通义千问</a
+          ><a href="https://huggingface.co/">Hugging Face</a
+          ><a href="https://www.phind.com/">Phind</a
+          ><a href="https://www.cursor.com/">Cursor</a
+          ><a href="https://www.w3schools.com/">W3Schools</a>
+        </div>
+      </section>
+      <section class="card">
+        <h2>🌍 域名</h2>
+        <div class="links">
+          <a href="https://www.aizhan.com/">爱站网</a
+          ><a href="https://cn.aliyun.com/">阿里云</a
+          ><a href="https://www.ename.net/">易名</a
+          ><a href="https://www.22.cn/">爱名网</a
+          ><a href="https://www.4.cn/">金名网</a
+          ><a href="https://www.dnspod.cn/">DNSPod</a
+          ><a href="https://www.gname.com/">Gname</a
+          ><a href="https://www.dynadot.com/">Dynadot</a
+          ><a href="https://www.godaddy.com/">GoDaddy</a
+          ><a href="https://www.afternic.com/">Afternic</a
+          ><a href="https://www.sedo.com/">Sedo</a
+          ><a href="https://www.dropcatch.com/">DropCatch</a
+          ><a href="https://who.is/">WHOIS</a
+          ><a href="https://www.namecheap.com/">Namecheap</a>
+        </div>
+      </section>
+      <section class="card">
+        <h2>🔍 搜索 / SEO</h2>
+        <div class="links">
+          <a href="https://www.google.com/">Google</a
+          ><a href="https://www.baidu.com/">百度</a
+          ><a href="https://www.bing.com/">Bing</a
+          ><a href="https://www.yahoo.com/">Yahoo</a
+          ><a href="https://www.so.com/">360 搜索</a
+          ><a href="https://search.google.com/search-console/welcome"
+            >Google Search Console</a
+          ><a href="https://www.bing.com/webmasters/about">Bing Webmaster</a
+          ><a href="https://ziyuan.baidu.com/">百度搜索资源平台</a>
+        </div>
+      </section>
+      <section class="card">
+        <h2>📱 实用工具</h2>
+        <div class="links">
+          <a href="https://www.qrcode-monkey.com/">QR Code Monkey</a
+          ><a href="https://www.generateqr.net/zh-cn">Generate QR</a
+          ><a href="https://makeqr.io/">Make QR</a
+          ><a href="https://www.photopea.com/">在线 PS</a
+          ><a href="https://www.remove.bg/">图片去背</a
+          ><a href="https://tinywow.com/">TinyWow</a
+          ><a href="https://www.speedtest.net/">网速测试</a
+          ><a href="https://web-capture.net/">网页截图</a
+          ><a href="https://screenshot.guru/">Screenshot Guru</a
+          ><a href="https://ttsmp3.com/">文本转语音</a
+          ><a href="https://www.deepl.com/translator">DeepL</a
+          ><a href="https://dict.eudic.net/">欧路词典</a>
+        </div>
+      </section>
+      <section class="card">
+        <h2>📮 邮箱 / 云盘</h2>
+        <div class="links">
+          <a href="https://mail.google.com/">Gmail</a
+          ><a href="https://outlook.live.com/">Outlook</a
+          ><a href="https://mail.qq.com/">QQ 邮箱</a
+          ><a href="https://mail.163.com/">163 邮箱</a
+          ><a href="https://mail.aliyun.com/">阿里邮箱</a
+          ><a href="https://mail.proton.me/">Proton Mail</a
+          ><a href="https://pan.baidu.com/">百度网盘</a
+          ><a href="https://www.alipan.com/">阿里云盘</a
+          ><a href="https://www.mediafire.com/">MediaFire</a>
+        </div>
+      </section>
+      <section class="card collapse" id="other">
+        <h2>📁 其它</h2>
+        <div class="links">
+          <a href="https://qzone.qq.com/">QQ 空间</a
+          ><a href="https://www.icloud.com/">Apple iCloud</a
+          ><a href="https://www.cadzxw.com/">CAD 自学网</a
+          ><a href="https://www.shopify.com/zh">Shopify</a
+          ><a href="https://www.numberbarn.com/">NumberBarn</a
+          ><a href="https://www.ringboost.com/">RingBoost</a
+          ><a href="https://talkroute.com/">Talkroute</a
+          ><a href="https://www.oalley.fr/">Oalley 地图</a
+          ><a href="https://www.kdocs.cn/">金山文档</a
+          ><a href="https://www.yuque.com/">语雀</a>
+        </div>
+      </section>
+      <div class="empty" id="empty">没有找到匹配的网址</div>
+    </main>
+    <button class="top" id="top" aria-label="回到顶部">↑</button>
+    <footer class="footer">m.openaa.com/mi · 个人导航</footer>
+    <script>
+      const input = document.getElementById("filter"),
+        cards = [...document.querySelectorAll(".card")],
+        empty = document.getElementById("empty");
+      document.querySelectorAll("a").forEach((a) => {
+        if (a.hostname !== location.hostname) {
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+        }
+      });
+      function filterLinks() {
+        const q = input.value.trim().toLowerCase();
+        let total = 0;
+        cards.forEach((card) => {
+          let count = 0;
+          card.querySelectorAll(".links a").forEach((a) => {
+            const hit =
+              !q || (a.textContent + " " + a.href).toLowerCase().includes(q);
+            a.classList.toggle("hidden", !hit);
+            if (hit) count++;
+          });
+          card.classList.toggle("hidden", q && count === 0);
+          if (q && count && card.classList.contains("collapse"))
+            card.classList.add("open");
+          total += count;
+        });
+        empty.style.display = q && total === 0 ? "block" : "none";
+      }
+      input.addEventListener("input", filterLinks);
+      document.getElementById("googleBtn").onclick = () => {
+        const q = input.value.trim();
+        if (q)
+          window.open(
+            "https://www.google.com/search?q=" + encodeURIComponent(q),
+            "_blank",
+            "noopener",
+          );
+      };
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          document.getElementById("googleBtn").click();
+        }
+      });
+      document.querySelector("#other h2").onclick = () =>
+        document.getElementById("other").classList.toggle("open");
+      const topBtn = document.getElementById("top");
+      window.addEventListener(
+        "scroll",
+        () => (topBtn.style.display = scrollY > 500 ? "block" : "none"),
+        { passive: true },
+      );
+      topBtn.onclick = () => scrollTo({ top: 0, behavior: "smooth" });
+    </script>
+  </body>
+</html>
