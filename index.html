@@ -287,10 +287,11 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
       .grid.address {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
       .card {
         display: block;
+        min-width: 0;
         min-height: 86px;
         border: 1px solid #f1f5f9;
         border-radius: 20px;
@@ -304,6 +305,7 @@
       }
       .card-inner {
         display: block;
+        min-width: 0;
         min-height: 70px;
         border-radius: 16px;
         background: #f8fafc;
@@ -343,6 +345,17 @@
       }
       .address-card {
         cursor: pointer;
+      }
+      .address-note {
+        display: -webkit-box;
+        margin-top: 6px;
+        overflow: hidden;
+        overflow-wrap: anywhere;
+        color: #64748b;
+        font-size: 13px;
+        line-height: 1.4;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
       }
       .value {
         display: block;
@@ -553,11 +566,11 @@
         { name: "8大道地铁口", address: "8th Ave & 62nd St, Brooklyn, NY 11220", region: "ny" },
         {name: "36街地铁口",address: "36th Street & Fourth Avenue Brooklyn, NY 11232",region: "ny",},
         {name: "36街 Costco",address: "976 3rd Ave Brooklyn, NY 11232",region: "ny",},       
-        {name: "Omiya Sushi泽欢",address: "Omiya Sushi, 8618 4th Ave, Brooklyn, NY 11209",region: "ny",},
+        {name: "Omiya Sushi",note: "泽欢",address: "Omiya Sushi, 8618 4th Ave, Brooklyn, NY 11209",region: "ny",},
         {name: "芳姑新屋",address: "1740 E 54th St, Brooklyn, NY 11234",region: "ny",},
-        {name: "旧芳姑20大道82街 2053",address: "2053 82nd St,Brooklyn,NY 11214",region: "ny",},
+        {name: "旧芳姑住址",note: "20大道82街 2053",address: "2053 82nd St,Brooklyn,NY 11214",region: "ny",},
         {name: "纽约车站",address: "31st St & 8th Ave New York, NY 10001",region: "ny",},
-        {name: "David Chien Esq钱志远律师",address: "7 Mott Street, Suite 600 New York, NY 10013",region: "ny",},
+        {name: "钱志远律师",note: "David Chien Esq",address: "7 Mott Street, Suite 600 New York, NY 10013",region: "ny",},
         {name: "永健",address: "1749 68th St,BROOKLYN,NY 11204-5006",region: "ny",},
         {name: "7大道673",address: "673 62nd Street Brooklyn, NY 11220",region: "ny",},
         {name: "机场 JFK",address: "John F. Kennedy International Airport, Queens, NY",region: "ny",},
@@ -565,11 +578,11 @@
 
 
         {name: "Walmart",address: "390 Route 315 Hwy, Pittston, PA 18640",region: "pa",},
-        {name: "Dickson City Crossings大型连锁店非常集中",address: "600–800 Commerce Blvd, Dickson City, PA 18519",region: "pa",},
-        {name: "Target家居、衣服、电子产品",address: "1140 Commerce Blvd, Dickson City, PA 18519",region: "pa",},        
-        {name: "Viewmont Mall有 Macy's、JCPenney、Old Navy、Ulta、Victoria's Secret、American Eagle 等",address: "Dickson City",region: "pa",},        
-        {name: "Moosic 的大型露天购物区，有 DSW、J.Crew Factory、LOFT、Bath & Body Works、Guitar Center 等",address: "The Shoppes at Montage Mountain",region: "pa",},        
-        {name: "宾州209",address: "209 Quality Rd, Dupont, PA 18641-1912, US",region: "pa",},       
+        {name: "Dickson City Crossings",note: "大型连锁店非常集中",address: "600–800 Commerce Blvd, Dickson City, PA 18519",region: "pa",},
+        {name: "Target",note: "家居、衣服、电子产品",address: "1140 Commerce Blvd, Dickson City, PA 18519",region: "pa",},
+        {name: "Viewmont Mall",note: "有 Macy's、JCPenney、Old Navy、Ulta、Victoria's Secret、American Eagle 等",address: "Dickson City",region: "pa",},
+        {name: "The Shoppes at Montage Mountain",note: "Moosic 的大型露天购物区，有 DSW、J.Crew Factory、LOFT、Bath & Body Works、Guitar Center 等",address: "The Shoppes at Montage Mountain",region: "pa",},
+        {name: "宾州209",address: "209 Quality Rd, Dupont, PA 18641-1912, US",region: "pa",},
         {name: "宾州717-王振伟",address: "717 Main St, Duryea, PA 18642, US",region: "pa",},
         {name: "宾州162-袁家峰",address: "162 Center St, Pittston, PA 18640-2612, US",region: "pa",},
         {name: "宾州长途车站",address: "Flix Bus Stop 609 luzerne st, Scranton, PA 18504, US",region: "pa",},
@@ -655,7 +668,7 @@
         if (!q) return items;
         return items.filter((item) => {
           const v = state.type === "phone" ? item.phone : item.address;
-          return normalize(item.name).includes(q) || normalize(v).includes(q);
+          return [item.name, item.note, v].some((part) => normalize(part || "").includes(q));
         });
       }
       function mapUrl(address) {
@@ -704,9 +717,10 @@
               value = escapeHtml(isPhone ? item.phone : item.address);
             if (isPhone)
               return `<a class="card" href="tel:${encodeURIComponent(item.phone)}"><span class="card-inner"><span class="name">${name}</span><span class="value">${value}</span></span></a>`;
-            const href = mapUrl(item.address),
+            const note = item.note ? `<span class="address-note">${escapeHtml(item.note)}</span>` : "",
+              href = mapUrl(item.address),
               addr = escapeAttribute(item.address);
-            return `<div class="card address-card" role="link" tabindex="0" data-map-url="${escapeAttribute(href)}"><div class="card-inner"><div class="address-title-row"><span class="name">${name}</span><button class="copy-address" type="button" data-address="${addr}" aria-label="复制地址">复制</button></div><span class="value">${value}</span></div></div>`;
+            return `<div class="card address-card" role="link" tabindex="0" data-map-url="${escapeAttribute(href)}"><div class="card-inner"><div class="address-title-row"><span class="name">${name}</span><button class="copy-address" type="button" data-address="${addr}" aria-label="复制地址">复制</button></div>${note}<span class="value">${value}</span></div></div>`;
           })
           .join("");
       }
