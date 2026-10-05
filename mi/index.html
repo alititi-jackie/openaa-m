@@ -10,6 +10,8 @@
     <meta name="robots" content="noindex,nofollow,noarchive" />
     <meta name="googlebot" content="noindex,nofollow,noarchive" />
     <title>OpenAA · 我的导航</title>
+    <link rel="icon" href="https://img.openaa.com/favicon.ico" />
+    <link rel="apple-touch-icon" href="https://img.openaa.com/apple-touch-icon.png" />
     <style>
       * {
         box-sizing: border-box;
@@ -38,9 +40,20 @@
         text-align: center;
       }
       .title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
         font-size: 26px;
         font-weight: 800;
         margin: 0;
+      }
+      .brand-logo {
+        display: block;
+        width: 30px;
+        height: 30px;
+        flex-shrink: 0;
+        border-radius: 8px;
       }
       .sub {
         font-size: 13px;
@@ -182,6 +195,10 @@
         .title {
           font-size: 21px;
         }
+        .brand-logo {
+          width: 28px;
+          height: 28px;
+        }
         .wrap {
           width: calc(100% - 16px);
         }
@@ -209,7 +226,10 @@
   </head>
   <body>
     <header>
-      <h1 class="title">OpenAA · 我的导航</h1>
+      <h1 class="title">
+        <img class="brand-logo" src="https://img.openaa.com/logo.png" alt="" width="30" height="30" />
+        <span>OpenAA · 我的导航</span>
+      </h1>
       <div class="sub">个人常用网址 · 快速查找 · 一键直达</div>
     </header>
     <main class="wrap">
