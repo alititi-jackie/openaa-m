@@ -25,6 +25,7 @@
         --line: #e7eaf0;
         --pill: #f5f7fa;
         --w: 1040px;
+        --site-header-height: 60px;
       }
       body {
         margin: 0;
@@ -35,9 +36,91 @@
         line-height: 1.5;
         -webkit-text-size-adjust: 100%;
       }
-      header {
-        padding: 28px 16px 14px;
-        text-align: center;
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        width: 100%;
+        border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+      }
+      .site-header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        width: min(var(--w), calc(100% - 24px));
+        min-height: var(--site-header-height);
+        margin: 0 auto;
+      }
+      .site-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-width: 0;
+        color: var(--text);
+        text-decoration: none;
+      }
+      .brand-logo {
+        display: block;
+        width: 30px;
+        height: 30px;
+        flex: 0 0 auto;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .brand-main {
+        font-size: 18px;
+        font-weight: 900;
+        line-height: 1;
+        letter-spacing: -0.03em;
+        white-space: nowrap;
+      }
+      .brand-dot {
+        color: #9ca3af;
+        font-size: 15px;
+        font-weight: 600;
+      }
+      .brand-context {
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 650;
+        white-space: nowrap;
+      }
+      .site-actions {
+        display: flex;
+        align-items: center;
+        flex: 0 0 auto;
+        gap: 6px;
+      }
+      .icon-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        flex: 0 0 44px;
+        padding: 0;
+        border: 1px solid transparent;
+        border-radius: 12px;
+        background: transparent;
+        color: #334155;
+        cursor: pointer;
+        text-decoration: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .icon-button:hover {
+        border-color: var(--line);
+        background: rgba(248, 250, 252, 0.95);
+      }
+      .icon-button:active {
+        background: transparent;
+      }
+      .icon-button:focus-visible {
+        outline: 2px solid var(--brand);
+        outline-offset: 2px;
       }
       .title {
         display: flex;
@@ -66,7 +149,7 @@
       }
       .finder {
         position: sticky;
-        top: 0;
+        top: var(--site-header-height);
         z-index: 20;
         padding: 8px 0 10px;
         background: rgba(245, 246, 248, 0.94);
@@ -189,15 +272,26 @@
         padding: 22px 10px 70px;
       }
       @media (max-width: 600px) {
-        header {
-          padding: 20px 12px 10px;
+        :root {
+          --site-header-height: 56px;
         }
-        .title {
-          font-size: 21px;
+        .site-header-inner {
+          width: calc(100% - 16px);
+          min-height: var(--site-header-height);
+          gap: 8px;
         }
         .brand-logo {
           width: 28px;
           height: 28px;
+        }
+        .brand-main {
+          font-size: 17px;
+        }
+        .brand-context {
+          font-size: 12px;
+        }
+        .site-actions {
+          gap: 4px;
         }
         .wrap {
           width: calc(100% - 16px);
@@ -218,21 +312,43 @@
         .google {
           padding: 0 12px;
         }
-        .sub {
-          display: none;
+        .page-intro {
+          margin: 8px 3px 2px;
         }
       }
     </style>
   </head>
   <body>
-    <header>
-      <h1 class="title">
-        <img class="brand-logo" src="https://img.openaa.com/logo.png" alt="" width="30" height="30" />
-        <span>OpenAA · 我的导航</span>
-      </h1>
-      <div class="sub">个人常用网址 · 快速查找 · 一键直达</div>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="site-brand" href="https://m.openaa.com/" aria-label="OpenAA 我的导航">
+          <img class="brand-logo" src="https://img.openaa.com/logo.png" alt="OpenAA" width="30" height="30" />
+          <span class="brand-main">OpenAA</span>
+          <span class="brand-dot" aria-hidden="true">·</span>
+          <span class="brand-context">我的导航</span>
+        </a>
+        <div class="site-actions">
+          <a class="icon-button" href="https://go.openaa.com/" aria-label="OpenAA 导航" title="OpenAA 导航">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+              <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+              <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+              <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+            </svg>
+          </a>
+          <button class="icon-button" type="button" id="shareButton" aria-label="分享" title="分享">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <path d="m8.7 10.7 6.6-4.4M8.7 13.3l6.6 4.4"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
     </header>
     <main class="wrap">
+      <div class="sub page-intro">个人常用网址 · 快速查找 · 一键直达</div>
       <div class="finder">
         <div class="finderbox">
           <input
@@ -405,6 +521,40 @@
       const input = document.getElementById("filter"),
         cards = [...document.querySelectorAll(".card")],
         empty = document.getElementById("empty");
+      document.getElementById("shareButton").addEventListener("click", async () => {
+        const shareData = {
+          title: "OpenAA · 我的导航",
+          text: "个人常用网址导航",
+          url: location.href,
+        };
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+            return;
+          } catch (error) {
+            if (error && error.name === "AbortError") return;
+          }
+        }
+        let copied = false;
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(location.href);
+            copied = true;
+          }
+        } catch (_) {}
+        if (!copied) {
+          const area = document.createElement("textarea");
+          area.value = location.href;
+          area.setAttribute("readonly", "");
+          area.style.position = "fixed";
+          area.style.top = "-9999px";
+          document.body.appendChild(area);
+          area.select();
+          try { copied = document.execCommand("copy"); } catch (_) {}
+          area.remove();
+        }
+        alert(copied ? "链接已复制" : "请手动复制地址栏链接");
+      });
       document.querySelectorAll("a").forEach((a) => {
         if (a.hostname !== location.hostname) {
           a.target = "_blank";
