@@ -196,6 +196,24 @@
         padding: 14px 15px;
         box-shadow: 0 5px 18px rgba(20, 30, 50, 0.045);
       }
+      .board {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        margin: 10px 0;
+        padding: 10px;
+        box-shadow: 0 5px 18px rgba(20, 30, 50, 0.045);
+      }
+      .board .card {
+        margin: 8px 0;
+        box-shadow: none;
+      }
+      .board .card:first-child {
+        margin-top: 0;
+      }
+      .board .card:last-child {
+        margin-bottom: 0;
+      }
       .card h2 {
         font-size: 16px;
         margin: 0 0 9px;
@@ -304,6 +322,11 @@
           margin: 8px 0;
           border-radius: 14px;
         }
+        .board {
+          padding: 8px;
+          margin: 8px 0;
+          border-radius: 16px;
+        }
         .links {
           gap: 6px;
         }
@@ -364,6 +387,7 @@
         </div>
       </div>
 
+      <div class="board">
       <section class="card favorite">
         <h2>⭐ 常用</h2>
         <div class="links">        
@@ -546,6 +570,7 @@
         </div>
       </section>
       
+      </div>
       <div class="empty" id="empty">没有找到匹配的网址</div>
     </main>
     <button class="top" id="top" aria-label="回到顶部">↑</button>
@@ -553,7 +578,8 @@
     <script>
       const input = document.getElementById("filter"),
         cards = [...document.querySelectorAll(".card")],
-        empty = document.getElementById("empty");
+        empty = document.getElementById("empty"),
+        board = document.querySelector(".board");
       document.getElementById("shareButton").addEventListener("click", async () => {
         const shareData = {
           title: "OpenAA · 我的导航",
@@ -611,6 +637,7 @@
           total += count;
         });
         empty.style.display = q && total === 0 ? "block" : "none";
+        board.style.display = q && total === 0 ? "none" : "";
       }
       input.addEventListener("input", filterLinks);
       document.getElementById("googleBtn").onclick = () => {
